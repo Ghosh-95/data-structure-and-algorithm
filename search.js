@@ -3,7 +3,7 @@ function veryfy(test) {
     if (test !== "None") {
         return `Target element found at index ${test}`;
     }
-    return `Target not found.`
+    return `Respond ${test} Target not found.`
 }
 
 
@@ -53,24 +53,28 @@ let testBinary = binarySearch([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 7);
 let resultBinary = veryfy(testBinary);
 console.log(resultBinary); // Output: Target found at index 6
 
-// function recursiveBinarySearch(array, target) {
-//     if (array.length === 0) return;
-//     else {
-//         // const array = arr.sort((a, b) => a - b);
-//         let midPoint = Math.floor(array.length / 2);
 
-//         if (array[midPoint] === target) {
-//             return array.indexOf(target);
-//         } else {
-//             if (target > array[midPoint]) {
-//                 return recursiveBinarySearch(array.slice(midPoint + 1), target);
-//             } else {
-//                 return recursiveBinarySearch(array.slice(0, midPoint - 1), target);
-//             }
-//         }
-//     };
-// }
 
-// let testRecursiveBinary = recursiveBinarySearch([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 7);
-// let resultRecursiveBinary = veryfy(testRecursiveBinary);
-// console.log(resultRecursiveBinary);
+function recursiveBinarySearch(array, target, left = 0, right = array.length - 1) {
+    if (array.length === 0) return "'Please input correct array'";
+    else {
+        // const array = arr.sort((a, b) => a - b);
+        let midPoint = Math.floor((left + right) / 2);
+
+        if (array[midPoint] === target) {
+            return midPoint;
+        } else {
+            if (target > array[midPoint]) {
+                return recursiveBinarySearch(array, target, midPoint + 1, array.length - 1);
+            } else if (target < array[midPoint]) {
+                return recursiveBinarySearch(array, target, 0, midPoint - 1);
+            } else {
+                return "None";
+            }
+        }
+    };
+}
+
+let testRecursiveBinary = recursiveBinarySearch([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 10); ``
+let resultRecursiveBinary = veryfy(testRecursiveBinary);
+console.log(resultRecursiveBinary);
