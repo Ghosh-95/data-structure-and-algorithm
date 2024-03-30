@@ -75,6 +75,6 @@ function recursiveBinarySearch(array, target, left = 0, right = array.length - 1
     };
 }
 
-let testRecursiveBinary = recursiveBinarySearch([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 10); ``
+let testRecursiveBinary = recursiveBinarySearch([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 10);
 let resultRecursiveBinary = veryfy(testRecursiveBinary);
 console.log(resultRecursiveBinary);
