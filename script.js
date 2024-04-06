@@ -239,4 +239,32 @@ function isPrime(num) {
     return true;
 };
 
-console.log(isPrime(15));
+// console.log(isPrime(15));
+
+function checkPrime(num) {
+    if (num <= 1) return "Not Prime";
+
+    let c = 2;
+    while (c < num) {
+        if (num % c === 0) return "Not prime";
+        c += 1;
+    }
+
+    return "Prime";
+};
+
+const resultPrime = checkPrime(17); // It has a linear runtime [O(n)];
+// console.log(resultPrime);
+
+function shuffleArray(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+        const index = Math.floor(Math.random() * arr.length);
+
+        [arr[i], arr[index]] = [arr[index], arr[i]];
+    }
+
+    return arr;
+};
+
+const suffledArray = shuffleArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+console.log(suffledArray);
